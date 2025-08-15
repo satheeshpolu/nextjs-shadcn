@@ -22,7 +22,7 @@ export default function ServicesPage() {
   return (
     <main className="relative h-screen">
       {/* Background with Curved Wave Shape */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-wheat clip-path-wave"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-wheat clip-path-wave"></div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 py-12">

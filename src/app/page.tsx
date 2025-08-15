@@ -4,8 +4,13 @@ export default function HomePage() {
   return (
     <main className="h-screen w-full relative">
       {/* Background with Diagonal Split */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-white clip-path-diagonal">
-        {/* Clip-path diagonal split */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-blue-900 to-wheat"
+        style={{
+          clipPath: "circle(50% at 50% 50%)",
+        }}
+      >
+        {/* Unique curved clip-path */}
       </div>
 
       {/* Foreground Content */}
@@ -16,10 +21,10 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground leading-relaxed">
-              Welcome to our website! We’re passionate about crafting exceptional
-              digital experiences using Next.js, TailwindCSS, and modern frontend
-              tools. Our goal is to make the web faster, prettier, and more
-              enjoyable.
+              Welcome to our website! We’re passionate about crafting
+              exceptional digital experiences using Next.js, TailwindCSS, and
+              modern frontend tools. Our goal is to make the web faster,
+              prettier, and more enjoyable.
             </p>
           </CardContent>
         </Card>

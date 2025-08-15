@@ -128,4 +128,10 @@
   .clip-path-diagonal {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
   }
+  .clip-path-circle {
+    clip-path: circle(68% at 0 100%);
+  }
+  .clip-path-inset {
+    clip-path: inset(5% 0 15% 10% round 5% 20% 0 10%);
+  }
 }
