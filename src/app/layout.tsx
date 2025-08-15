@@ -115,24 +115,26 @@ export default function DashboardLayout({
           <SheetContent side="right">
             <SheetHeader>
               <SheetTitle>{`What's new!`}</SheetTitle>
-              <Separator className="my-4 mb-0" />
+              <Separator className="my-4" />
             </SheetHeader>
             <div className="mt-4">
               {/* Your sheet content here */}
               <p>Welcome to the Explore More section!</p>
-              <Button onClick={() => setSheetOpen(false)}>Close</Button>
+              <Link key={"/news"} href={"news"}>
+                NewsPage
+              </Link>
               <Link
-                        key={'/news'}
-                        href={'/news'}
-                        // className={cn(
-                        //   "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                        //   pathname === link.href
-                        //     ? "bg-accent text-accent-foreground"
-                        //     : "text-muted-foreground"
-                        // )}
-                      >
-                        News Page
-                      </Link>
+                key={"news"}
+                href={"news"}
+                className={cn(
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                  pathname === "link.href"
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground"
+                )}
+              >
+                {"News"}
+              </Link>
             </div>
           </SheetContent>
         </Sheet>
