@@ -24,7 +24,7 @@ type Point = { t: number; p: number };
 export default function RealtimeChart({data, loading}: Props) {
 
   return (
-    <Card className="w-full max-w-3xl mx-auto">
+    <Card className="w-full max-w-6xl mx-auto shadow-lg rounded-2xl">
       <CardHeader>
         <CardTitle>Realtime Trade Data (BTC/USDT)</CardTitle>
       </CardHeader>
