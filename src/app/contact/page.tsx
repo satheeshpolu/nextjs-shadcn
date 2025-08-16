@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-
+import RealtimeChart from "../components/RealtimeChart";
 export default function ContactPage() {
   return (
     <main className="h-screen relative">
@@ -27,6 +27,7 @@ export default function ContactPage() {
           </CardContent>
         </Card>
       </div>
+      <RealtimeChart />
     </main>
   );
 }

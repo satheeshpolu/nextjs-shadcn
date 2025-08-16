@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
+import { CONSTANTS } from "./utils/constants";
 
 export default function DashboardLayout({
   children,
@@ -31,8 +32,10 @@ export default function DashboardLayout({
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
-    { href: "", label: "Explore More", opensSheet: true },
+    { href: "/explore-more", label: "Explore More", opensSheet: true },
   ];
+
+  const newLinks = [{ href: "/news", label: "News" },{ href: "/websocket", label: "Realtime Chart" }];
 
   return (
     <html lang="en">
@@ -44,7 +47,7 @@ export default function DashboardLayout({
               href="/"
               className="text-lg font-bold tracking-tight font-mono"
             >
-              NextJS + Shadcn
+              {CONSTANTS.WEB_SITE_TITLE}
             </Link>
 
             {/* Desktop Menu */}
@@ -83,13 +86,15 @@ export default function DashboardLayout({
                 <SheetContent side="left">
                   {/* Sheet Header with Title for accessibility */}
                   <SheetHeader>
-                    <SheetTitle>Navigation Menu</SheetTitle>
+                    <SheetTitle style={{ alignSelf: "center" }}>
+                      {CONSTANTS.WEB_SITE_TITLE}
+                    </SheetTitle>
                     <Separator className="my-4 mb-0" />
                   </SheetHeader>
 
                   {/* Navigation Links */}
                   <div className="flex flex-col gap-2">
-                    {navLinks.map((link) => (
+                    {newLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
@@ -113,28 +118,28 @@ export default function DashboardLayout({
         <main>{children}</main>
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle>{`What's new!`}</SheetTitle>
+            <SheetHeader style={{backgroundColor: 'greenyellow' }}>
+              <SheetTitle style={{ alignSelf: "center"}}>{CONSTANTS.SIDE_BAR_RHS_TITLE}</SheetTitle>
               <Separator className="my-4" />
             </SheetHeader>
-            <div className="mt-4">
-              {/* Your sheet content here */}
-              <p>Welcome to the Explore More section!</p>
-              <Link key={"/news"} href={"news"}>
-                NewsPage
-              </Link>
-              <Link
-                key={"news"}
-                href={"news"}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                  pathname === "link.href"
-                    ? "bg-accent text-accent-foreground"
-                    : "text-muted-foreground"
-                )}
-              >
-                {"News"}
-              </Link>
+            {/* Your sheet content here */}
+
+            <div className="flex flex-col gap-2">
+              {newLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                    pathname === link.href
+                      ? "bg-accent text-accent-foreground"
+                      : "text-muted-foreground"
+                  )}
+                  style={{ textAlign: "center" }}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </SheetContent>
         </Sheet>
