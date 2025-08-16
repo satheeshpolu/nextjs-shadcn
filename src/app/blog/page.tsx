@@ -9,6 +9,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  console.log(slug);
   // const post = await getPost(slug)
 
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -16,7 +17,7 @@ export default async function BlogPostPage({
 
   return (
     <div>
-      {posts.map((post) => (
+      {posts.map((post: {id: number, title: string}) => (
         <Card
           key={post.id}
           className="hover:bg-secondary transition-colors duration-200 flex flex-col gap-2 w-[30%] mb-4"
