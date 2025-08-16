@@ -27,7 +27,6 @@ export default function ContactPage() {
           </CardContent>
         </Card>
       </div>
-      <RealtimeChart />
     </main>
   );
 }

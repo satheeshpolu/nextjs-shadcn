@@ -1,13 +1,13 @@
 "use client";
+import { useStock } from "@/hooks/useStock";
 import RealtimeChart from "../components/RealtimeChart";
 import TableDemo from "../components/TableDemo";
 
 export default function NewsPage() {
-
+  const {stockData, loading} = useStock();
   return (
     <main className="h-screen relative space-y-4 p-4">
-      <RealtimeChart />
-      <TableDemo />
+      <RealtimeChart data={stockData} loading={loading}/>
     </main>
   );
 }
