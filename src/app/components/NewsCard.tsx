@@ -21,16 +21,16 @@ interface TickerSentiment {
   ticker_sentiment_label: string;
 }
 
-interface NewsProps {
+export interface NewsProps {
   title: string;
   url: string;
   time_published: string;
-  authors: string[];
+//   authors: string[];
   summary: string;
   banner_image: string;
   source: string;
-  category_within_source: string;
-  source_domain: string;
+  // category_within_source: string;
+//   source_domain: string;
   topics: Topic[];
   overall_sentiment_label: string;
   ticker_sentiment: TickerSentiment[];
@@ -40,12 +40,12 @@ export default function NewsCard({
   title,
   url,
   time_published,
-  authors,
+//   authors,
   summary,
   banner_image,
   source,
-  category_within_source,
-  source_domain,
+  // category_within_source,
+//   source_domain,
   topics,
   overall_sentiment_label,
   ticker_sentiment,

@@ -1,13 +1,13 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
+// import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import NewsCard from "../components/NewsCard";
-
+import type { NewsProps } from "../components/NewsCard"; 
 export default function NewsPage() {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function NewsPage() {
   return (
     <main className="h-screen relative space-y-4 p-4">
       <h2 className="text-2xl font-bold">News Page</h2>
-      {data.map((item: any, index: number) => (
+      {data.map((item: NewsProps, index: number) => (
         <NewsCard key={item.url || index} {...item} />
       ))}
     </main>

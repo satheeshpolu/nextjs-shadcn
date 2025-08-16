@@ -31,7 +31,7 @@ export default function DashboardLayout({
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
-    { href: "", label: "Explore More", opensSheet: true },
+    { href: "/explore-more", label: "Explore More", opensSheet: true },
   ];
 
   return (
