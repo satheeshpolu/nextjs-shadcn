@@ -1,13 +1,39 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
+// import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import NewsCard from "../components/NewsCard";
+interface Topic {
+  topic: string;
+  relevance_score: string;
+}
+
+interface TickerSentiment {
+  ticker: string;
+  relevance_score: string;
+  ticker_sentiment_score: string;
+  ticker_sentiment_label: string;
+}
+
+interface NewsProps {
+  title: string;
+  url: string;
+  time_published: string;
+  // authors: string[];
+  summary: string;
+  banner_image: string;
+  source: string;
+  // category_within_source: string;
+  // source_domain: string;
+  topics: Topic[];
+  overall_sentiment_label: string;
+  ticker_sentiment: TickerSentiment[];
+}
 
 export default function NewsPage() {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,7 +56,7 @@ export default function NewsPage() {
   return (
     <main className="h-screen relative space-y-4 p-4">
       <h2 className="text-2xl font-bold">News Page</h2>
-      {data.map((item: any, index: number) => (
+      {data.map((item: NewsProps, index: number) => (
         <NewsCard key={item.url || index} {...item} />
       ))}
     </main>
