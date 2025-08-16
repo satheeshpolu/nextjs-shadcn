@@ -1,32 +1,65 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+"use client";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
+// import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import NewsCard from "../components/NewsCard";
+import { NewsProps } from "../utils/types";
+// interface Topic {
+//   topic: string;
+//   relevance_score: string;
+// }
+
+// interface TickerSentiment {
+//   ticker: string;
+//   relevance_score: string;
+//   ticker_sentiment_score: string;
+//   ticker_sentiment_label: string;
+// }
+
+// interface NewsProps {
+//   title: string;
+//   url: string;
+//   time_published: string;
+//   // authors: string[];
+//   summary: string;
+//   banner_image: string;
+//   source: string;
+//   // category_within_source: string;
+//   // source_domain: string;
+//   topics: Topic[];
+//   overall_sentiment_label: string;
+//   ticker_sentiment: TickerSentiment[];
+// }
 
 export default function ExploreMorePage() {
-  return (
-    <main className="h-screen relative">
-      {/* Background with Diagonal Split - White and Yellow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white to-yellow-400 clip-path-diagonal"></div>
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-      {/* Foreground Content */}
-      <div className="relative z-10 mx-auto max-w-2xl px-4 py-12">
-        <Card className="rounded-2xl shadow-lg bg-white dark:bg-gray-800 p-6">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold">ExploreMorePage</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form className="space-y-4">
-              <Input placeholder="Your Name" />
-              <Input type="email" placeholder="Your Email" />
-              <Textarea placeholder="Your Message" rows={5} />
-              <Button type="submit" className="w-full rounded-xl">
-                Send Message
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </div>
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      const res = await fetch(
+        `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=demo`
+      );
+      const json = await res.json();
+      setData(json?.feed);
+      setLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (!data) return <p>No data found</p>;
+
+  return (
+    <main className="h-screen relative space-y-4 p-4">
+      <h2 className="text-2xl font-bold">News Page</h2>
+      {data.map((item: NewsProps, index: number) => (
+        <NewsCard key={item.url || index} {...item} />
+      ))}
     </main>
   );
 }
