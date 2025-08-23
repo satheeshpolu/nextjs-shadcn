@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import NewsCard from "../components/NewsCard";
 import { CONSTANTS } from "../utils/constants";
 import { NewsProps } from "../utils/types";
+import TitleHighlight from "../components/TitleHighlight";
 
 export default function NewsPage() {
   const [data, setData] = useState([]);
@@ -24,11 +25,19 @@ export default function NewsPage() {
   if (!data) return <p>{CONSTANTS.NO_DATA_FOUND}</p>;
 
   return (
-    <main className="h-screen relative space-y-4 p-4">
-      <h2 className="text-2xl font-bold">News Page</h2>
-      {data.map((item: NewsProps, index: number) => (
-        <NewsCard key={item.url || index} {...item} />
-      ))}
+    <main className="h-screen relative space-y-4 p-8 text-center">
+      <TitleHighlight
+        title="News and Insights"
+        fromGradient="from-cyan-300"
+        viaGradient="via-blue-300"
+        toGradient="to-indigo-300"
+      />
+
+      <div style={{ overflow: "auto", height: "90vh" }}>
+        {data.map((item: NewsProps, index: number) => (
+          <NewsCard key={item.url || index} {...item} />
+        ))}
+      </div>
     </main>
   );
 }

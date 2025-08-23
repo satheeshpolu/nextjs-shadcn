@@ -30,7 +30,7 @@ export default function RealtimeChart({data, loading}: Props) {
       </CardHeader>
       <CardContent className="h-64">
         {loading && <h1>{CONSTANTS.LOADING}</h1>}
-        {!loading &&(
+        {!loading && (
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
               <XAxis
@@ -58,7 +58,7 @@ export default function RealtimeChart({data, loading}: Props) {
               />
               <Line
                 type="stepAfter"
-                dataKey="p" // ✅ fixed here
+                dataKey="p"
                 stroke="#3b82f6"
                 strokeWidth={2}
                 dot={false}

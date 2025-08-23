@@ -20,11 +20,12 @@ export default function HomePage() {
             <CardTitle className="text-3xl font-bold">Home</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              Welcome to our website! We’re passionate about crafting
-              exceptional digital experiences using Next.js, TailwindCSS, and
-              modern frontend tools. Our goal is to make the web faster,
-              prettier, and more enjoyable.
+            <p className="text-muted-foreground leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
+              Welcome to our website! We’re passionate about building
+              high-performance digital experiences with Next.js, shadcn/ui, and
+              modern frontend tools. By leveraging server-side rendering,
+              automation, and scalable architecture, we ensure every project is
+              fast, maintainable, and production-ready.
             </p>
           </CardContent>
         </Card>
