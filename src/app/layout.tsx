@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { CONSTANTS } from "./utils/constants";
+import { routes } from "@/routes/routes";
 
 export default function DashboardLayout({
   children,
@@ -27,15 +28,9 @@ export default function DashboardLayout({
     return classes.filter(Boolean).join(" ");
   }
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
-    { href: "/explore-more", label: "Explore More", opensSheet: true },
-  ];
-
-  const newLinks = [{ href: "/news", label: "News" },{ href: "/websocket", label: "Realtime Chart" }];
+  const navLinks = routes.main;
+  const newLinks = routes.apps;
+  const mobileNewLinks = routes.mobile;
 
   return (
     <html lang="en">
@@ -94,7 +89,7 @@ export default function DashboardLayout({
 
                   {/* Navigation Links */}
                   <div className="flex flex-col gap-2">
-                    {newLinks.map((link) => (
+                    {mobileNewLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
@@ -118,8 +113,10 @@ export default function DashboardLayout({
         <main>{children}</main>
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetContent side="right">
-            <SheetHeader style={{backgroundColor: 'greenyellow' }}>
-              <SheetTitle style={{ alignSelf: "center"}}>{CONSTANTS.SIDE_BAR_RHS_TITLE}</SheetTitle>
+            <SheetHeader>
+              <SheetTitle style={{ alignSelf: "center" }}>
+                {CONSTANTS.SIDE_BAR_RHS_TITLE}
+              </SheetTitle>
               <Separator className="my-4" />
             </SheetHeader>
             {/* Your sheet content here */}

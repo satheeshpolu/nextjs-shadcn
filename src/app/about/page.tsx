@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import TitleHighlight from "../components/TitleHighlight";
 
 export default function AboutPage() {
   return (

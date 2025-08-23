@@ -68,7 +68,7 @@ export default function NewsCard({
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 100 }}
+      transition={{ type:"tween", stiffness: 100 }}
     >
       <Card className="overflow-hidden border-0 shadow-lg rounded-2xl">
         {/* Banner */}
