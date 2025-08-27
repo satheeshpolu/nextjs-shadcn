@@ -44,7 +44,7 @@ export default function DashboardLayout({
             >
               {CONSTANTS.WEB_SITE_TITLE}
             </Link>
-
+            <h1>[ The app is currently under development ]</h1>
             {/* Desktop Menu */}
             <nav className="hidden gap-1 md:flex">
               {navLinks.map((link) => (

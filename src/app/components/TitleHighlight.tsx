@@ -1,10 +1,12 @@
+import React from "react";
+
 type Props = {
   title: string;
   fromGradient: string;
   viaGradient: string;
   toGradient: string;
 };
-export default function TitleHighlight({
+function TitleHighlight({
   title,
   fromGradient,
   viaGradient,
@@ -21,3 +23,5 @@ export default function TitleHighlight({
     </h2>
   );
 }
+
+export default React.memo(TitleHighlight);
