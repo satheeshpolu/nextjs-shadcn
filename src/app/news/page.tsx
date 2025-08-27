@@ -21,7 +21,7 @@ export default function NewsPage() {
     fetchData();
   }, []);
 
-  if (loading) return <p>{CONSTANTS.LOADING}</p>;
+  if (loading) return <p className="text-center">{CONSTANTS.LOADING}</p>;
   if (!data) return <p>{CONSTANTS.NO_DATA_FOUND}</p>;
 
   return (

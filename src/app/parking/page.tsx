@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { number } from "framer-motion";
+import TitleHighlight from "../components/TitleHighlight";
 
 export default function Parking() {
   const [carNotFound, setCarNotFound] = useState(false);
@@ -51,7 +52,7 @@ export default function Parking() {
       updatedSlots[availableIndex] = {
         ...updatedSlots[availableIndex],
         occupied: true,
-        carNo: carNo,
+        carNo: carNo.toUpperCase(),
         //   checkInAt: new Date().getTime(),
       };
       setParkingSlots(updatedSlots);
@@ -66,7 +67,7 @@ export default function Parking() {
   const handleCheckOut = () => {
     const updatedSlots = [...parkingSlots];
     const checkOutCarIndex = updatedSlots.findIndex(
-      (slot) => slot.carNo === carNo
+      (slot) => slot.carNo === carNo.toUpperCase()
     );
 
     if (checkOutCarIndex == -1) {
@@ -89,9 +90,12 @@ export default function Parking() {
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-10">
       {/* Left: 70% */}
       <section className="md:col-span-7 p-6 md:p-10">
-        <h1 className="text-2xl md:text-3xl font-semibold mb-6 text-center">
-          Smart Parking System
-        </h1>
+        <TitleHighlight
+          title="Smart Parking System"
+          fromGradient="from-white-300"
+          viaGradient="via-green-300"
+          toGradient="to-white-300"
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {parkingSlots.map((slot) => (
             <Card key={slot.id} className="rounded-2xl shadow-sm">
@@ -109,7 +113,7 @@ export default function Parking() {
                 {/* Right 30%: Car number */}
                 <div className="w-[40%] flex flex-col items-center justify-center bg-white rounded-r-2xl border-l">
                   <p className="font-medium text-gray-500">
-                    {slot.carNo ? slot.carNo : "Empty"}
+                    {slot.carNo ? slot.carNo : "Free"}
                   </p>
                   <p
                     className={`font-medium text-sm ${
