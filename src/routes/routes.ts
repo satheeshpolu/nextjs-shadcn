@@ -10,6 +10,7 @@ export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
   { href: "/parking", label: "Parking App" },
+  { href: "/news", label: "News App" },
   { href: "/explore-more", label: "Explore More", opensSheet: true },
 ];
 
