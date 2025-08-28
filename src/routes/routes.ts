@@ -11,11 +11,12 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
   { href: "/parking", label: "Parking App" },
   { href: "/news", label: "News App" },
+  { href: "/websocket", label: "Websocket App" },
   { href: "/explore-more", label: "Explore More", opensSheet: true },
 ];
 
 export const routes = {
   main: navLinks,
   apps: appLinks,
-  mobile: [...navLinks.filter(navLink => navLink.href != "/explore-more"), ...appLinks],
+  mobile: [...navLinks.filter(navLink => navLink.href != "/explore-more")],
 };
