@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { number } from "framer-motion";
 import TitleHighlight from "../components/TitleHighlight";
+import { FaCarSide } from "react-icons/fa6";
 
 export default function Parking() {
   const [carNotFound, setCarNotFound] = useState(false);
@@ -93,7 +94,7 @@ export default function Parking() {
         <TitleHighlight
           title="Smart Parking System"
           fromGradient="from-white-300"
-          viaGradient="via-green-300"
+          viaGradient="via-purple-300"
           toGradient="to-white-300"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -104,16 +105,36 @@ export default function Parking() {
 
                 <div
                   className={`w-[60%] flex items-center justify-center ${
-                    slot.carNo ? "bg-red-300" : "bg-gray-100"
+                    slot.carNo ? "bg-red-100" : "bg-green-100"
                   } rounded-r-2xl mr-4`}
                 >
-                  <span className="text-gray-600">Image</span>
+                  {slot.occupied && (
+                    <FaCarSide
+                      size={90}
+                      className="text-red-500 w-50"
+                      style={{
+                        animation: "drive 3s ease-out forwards",
+                      }}
+                    />
+                  )}
+                  {!slot.occupied && (
+                    <span className="font-medium text-green-500">Free</span>
+                  )}
+
+                  <style>
+                    {`
+          @keyframes drive {
+            from { transform: translateX(-60px); }
+            to { transform: translateX(15px); }
+          }
+        `}
+                  </style>
                 </div>
 
                 {/* Right 30%: Car number */}
                 <div className="w-[40%] flex flex-col items-center justify-center bg-white rounded-r-2xl border-l">
                   <p className="font-medium text-gray-500">
-                    {slot.carNo ? slot.carNo : "Free"}
+                    {slot.carNo ? slot.carNo : "XX XXXX"}
                   </p>
                   <p
                     className={`font-medium text-sm ${
