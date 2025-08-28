@@ -84,7 +84,12 @@ export default function DashboardLayout({
                   {/* Sheet Header with Title for accessibility */}
                   <SheetHeader>
                     <SheetTitle style={{ alignSelf: "center" }}>
-                      {CONSTANTS.WEB_SITE_TITLE}
+                      <Link
+                        href="/"
+                        className="text-lg font-bold tracking-tight font-mono bg-gradient-to-r from-purple-400 via-yellow-500 to-green-500  bg-clip-text text-transparent hover:from-blue-500 hover:via-green-600 hover:to-gray-600 duration-500 ease-in-out hover:scale-110 transition-colors"
+                      >
+                        {CONSTANTS.WEB_SITE_TITLE}
+                      </Link>
                     </SheetTitle>
                     <Separator className="my-4 mb-0" />
                   </SheetHeader>
@@ -135,6 +140,7 @@ export default function DashboardLayout({
                       : "text-muted-foreground"
                   )}
                   style={{ textAlign: "center" }}
+                  onClick={() => setSheetOpen(false)}
                 >
                   {link.label}
                 </Link>
