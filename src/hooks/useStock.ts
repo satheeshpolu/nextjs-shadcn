@@ -22,7 +22,6 @@ export const useStock = () => {
 
     socket.addEventListener("message", (event) => {
       try {
-         // debugger
         setLoading(CONSTANTS.TRUE);
         const msg = JSON.parse(event.data);
         if (msg.type === "trade" && msg.data?.length > 0) {
