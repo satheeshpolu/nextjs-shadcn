@@ -1,3 +1,5 @@
+# TODO: Need to update the README file content
+# Look at the demo [here](https://nextjs-shadcn-delta.vercel.app/)
 # nextjs-shadcn
 It uses NextJS, Typescript, Shadcn(In progress)
 
