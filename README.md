@@ -52,12 +52,14 @@ The app is deployed on [Vercel](https://vercel.com/), ensuring:
 
 Take a look at the multi-app experience in action from smart parking to live trading and news updates, everything is designed to be simple, modern, and highly interactive.
 
-- 🏠 **Smart Parking System** — Find and manage parking spaces in real-time with a clean and user-friendly interface.  
+- 🏠 **Smart Parking System** — Find and manage parking spaces in real-time with a clean and user-friendly interface. 
+    - **Check-In Page**
   ![Check-In Page](./public/image.png)
-  ![Check-Out Page]![alt text](./public/image-1.png)
+    - **Check-Out Page**
+  ![Check-Out Page](./public/image-1.png)
 
 - 📰 **News & Insights** — Stay updated with the latest financial and global news, neatly categorized for easy browsing.
-  ![News Page](image-2.png)
+  ![News Page](./public/image-2.png)
 
 - 📈 **Realtime Trade Data (BTC/USDT)** — Track live cryptocurrency price movements with instant updates and smooth charts.
   ![Realtime Trade Data (BTC/USDT)](./public/image-3.png)
@@ -66,7 +68,7 @@ Take a look at the multi-app experience in action from smart parking to live tra
   ![Home Page](./public/image-4.png)
 
 - ℹ️ **About Page** — Learn more about the project and its goals with a simple, elegant layout.
-  ![About Page](image-5.png)
+  ![About Page](./public/image-5.png)
 
 - 🛠️ **Services Page** — Explore the available services and tools offered across apps. 
   ![Services Page](./public/image-6.png)
